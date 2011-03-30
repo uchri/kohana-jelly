@@ -50,7 +50,7 @@ abstract class Jelly_Field_Timestamp extends Jelly_Field
 			return NULL;
 		}
 
-		if (FALSE !== strtotime($value))
+		if (! is_numeric($value) AND FALSE !== strtotime($value))
 		{
 			return strtotime($value);
 		}
