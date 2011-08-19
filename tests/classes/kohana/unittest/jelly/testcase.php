@@ -15,7 +15,7 @@ class Kohana_Unittest_Jelly_TestCase extends Kohana_Unittest_Database_TestCase {
 		parent::setUpBeforeClass();
 
 		// Load config
-		$config = Kohana::config('database')->{Kohana::config('unittest')->db_connection};
+		$config = Kohana::$config->load('database')->{Kohana::$config->load('unittest')->db_connection};
 
 		// Find file
 		$file = Kohana::find_file('tests/test_data/jelly', 'test-schema-'.$config['type'], 'sql');
@@ -43,14 +43,14 @@ class Kohana_Unittest_Jelly_TestCase extends Kohana_Unittest_Database_TestCase {
 	 * Creates the database connection.
 	 *
      * @return  PHPUnit_Extensions_Database_DB_IDatabaseConnection
-	 * @uses    Kohana::config
+	 * @uses    Kohana::$config->load
 	 * @uses    Arr::get
 	 * @uses    PDO
      */
     public function getConnection()
     {
         // Load config
-		$config = Kohana::config('database')->{Kohana::config('unittest')->db_connection};
+		$config = Kohana::$config->load('database')->{Kohana::$config->load('unittest')->db_connection};
 
 		// Set dsn
 		$dsn = Arr::get($config, 'dsn', $config['type'].':host='.$config['connection']['hostname'].';dbname='.$config['connection']['database']);
