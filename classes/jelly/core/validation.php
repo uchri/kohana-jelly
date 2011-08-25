@@ -69,9 +69,6 @@ abstract class Jelly_Core_Validation extends Validation
 			}
 		}
 
-		// Overload the current array with the new one
-		$this->exchangeArray($data);
-
 		// Remove the rules that apply to every field
 		unset($rules[TRUE]);
 
@@ -180,9 +177,6 @@ abstract class Jelly_Core_Validation extends Validation
 				}
 			}
 		}
-
-		// Restore the data to its original form
-		$this->exchangeArray($original);
 
 		if (isset($benchmark))
 		{
