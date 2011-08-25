@@ -43,7 +43,7 @@ abstract class Jelly_Core_Validation extends Validation
 		$data = $this->_errors = array();
 
 		// Store the original data because this class should not modify it post-validation
-		$original = $this->getArrayCopy();
+		$original = $this->as_array();
 
 		// Get a list of the expected fields
 		$expected = Arr::merge(array_keys($original), array_keys($this->_labels));
