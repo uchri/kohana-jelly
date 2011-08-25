@@ -306,9 +306,11 @@ abstract class Jelly_Core_Builder extends Database_Query_Builder_Select
 	 *
 	 * @param   string|null  $db
 	 * @param   string|null  $type
+	 * @param   mixed        unused - makes signature "compatible" with
+	 *	base class
 	 * @return  array|int|Jelly_Collection|Jelly_Model
 	 */
-	public function execute($db = NULL, $type = NULL)
+	public function execute($db = NULL, $type = NULL, $_ = FALSE)
 	{
 		$type === NULL AND $type = $this->_type;
 
